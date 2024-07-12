@@ -1,0 +1,50 @@
+1. Reliance Industries - RELIANCE.BO
+2. Tata Consultancy Services - TCS.BO
+3. HDFC Bank - HDFCBANK.BO
+4. Infosys - INFY.BO
+5. Hindustan Unilever - HINDUNILVR.BO
+6. HDFC - HDFC.BO
+7. ICICI Bank - ICICIBANK.BO
+8. Kotak Mahindra Bank - KOTAKBANK.BO
+9. State Bank of India - SBIN.BO
+10. Bajaj Finance - BAJFINANCE.BO
+11. Bharti Airtel - BHARTIARTL.BO
+12. Asian Paints - ASIANPAINT.BO
+13. ITC - ITC.BO
+14. Larsen & Toubro - LT.BO
+15. Axis Bank - AXISBANK.BO
+16. Avenue Supermarts - DMART.BO
+17. Maruti Suzuki - MARUTI.BO
+18. Sun Pharmaceutical - SUNPHARMA.BO
+19. HCL Technologies - HCLTECH.BO
+20. Adani Green Energy - ADANIGREEN.BO
+21. Titan Company - TITAN.BO
+22. NTPC - NTPC.BO
+23. Power Grid Corporation - POWERGRID.BO
+24. Bajaj Finserv - BAJAJFINSV.BO
+25. Tech Mahindra - TECHM.BO
+26. Tata Motors - TATAMOTORS.BO
+27. Wipro - WIPRO.BO
+28. UltraTech Cement - ULTRACEMCO.BO
+29. Grasim Industries - GRASIM.BO
+30. HDFC Life Insurance - HDFCLIFE.BO
+31. Oil and Natural Gas Corporation - ONGC.BO
+32. SBI Life Insurance - SBILIFE.BO
+33. JSW Steel - JSWSTEEL.BO
+34. IndusInd Bank - INDUSINDBK.BO
+35. Adani Ports and SEZ - ADANIPORTS.BO
+36. Coal India - COALINDIA.BO
+37. Dr. Reddy's Laboratories - DRREDDY.BO
+38. Cipla - CIPLA.BO
+39. Bharat Petroleum Corporation - BPCL.BO
+40. Divi's Laboratories - DIVISLAB.BO
+41. ICICI Prudential Life Insurance - ICICIPRULI.BO
+42. Adani Enterprises - ADANIENT.BO
+43. Hero MotoCorp - HEROMOTOCO.BO
+44. UPL - UPL.BO
+45. Shree Cement - SHREECEM.BO
+46. Bajaj Auto - BAJAJ-AUTO.BO
+47. GAIL (India) - GAIL.BO
+48. Vedanta - VEDL.BO
+49. Eicher Motors - EICHERMOT.BO
+50. Britannia Industries - BRITANNIA.BO

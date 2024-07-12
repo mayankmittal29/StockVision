@@ -33,6 +33,10 @@ cd StockVision
     </li>
     <li>Run the Streamlit app:
         <pre><code>streamlit run app.py
+        </code></pre>
+    </li>
+    <li>Can find the Ticker in:
+        <pre><code>Ticker.txt file
 </code></pre>
     </li>
     <li>Access the application in your web browser at <a href="http://localhost:8501">http://localhost:8501</a>.</li>

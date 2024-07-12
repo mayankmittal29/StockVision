@@ -9,7 +9,7 @@ from sklearn.linear_model import LinearRegression
 import mplfinance as mpf
 
 start = '2013-07-11'
-end = '2024-06-10'
+end = '2024-07-10'
 st.markdown("<h1 style='text-align: center; font-size: 36px;'>StockVision</h1>", unsafe_allow_html=True)
 st.title('Stock Trend Prediction for BSE')
 
@@ -99,7 +99,7 @@ for i in range(100,train_scaled.shape[0]):
 
 x_train , y_train  = np.array(X_train),np.array(y_train)
 
-model = load_model(f'{ticker}.h5')
+model = load_model('model.h5')
 
 train_scaled_df = pd.DataFrame(train_scaled, columns=data_training.columns)
 test_scaled_df = pd.DataFrame(test_scaled, columns=data_testing.columns)
