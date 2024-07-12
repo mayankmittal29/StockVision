@@ -13,7 +13,7 @@
 
 <h2 style="color: #4CAF50;">Features</h2>
 <ul style="font-size: 16px;">
-    <li><b>Predictive Modeling</b>: Utilizes a machine learning model to forecast stock prices for the next 100 days based on historical trends.</li>
+    <li><b>Predictive Modeling</b>: Utilizes a machine learning model to forecast stock prices for the next 10 days based on historical trends.</li>
     <li><b>Interactive Charts</b>: Offers interactive plots for closing prices, moving averages, and financial ratios.</li>
     <li><b>Candlestick Charts</b>: Provides visualization of stock price movements using candlestick charts for historical and predicted data.</li>
     <li><b>Financial Analysis</b>: Displays key financial ratios to assist in fundamental analysis.</li>
@@ -53,7 +53,7 @@ cd StockVision
 <h2 style="color: #4CAF50;">Usage</h2>
 <ol style="font-size: 16px;">
     <li><b>Enter Stock Ticker</b>: Input the stock ticker symbol (e.g., INFY.BO) in the text box.</li>
-    <li><b>Predictions</b>: View predicted stock prices for the next 100 days along with trend analysis.</li>
+    <li><b>Predictions</b>: View predicted stock prices for the next 10 days along with trend analysis.</li>
     <li><b>Time Series Analysis</b>: Explore historical closing prices and moving averages for different time periods (1 month, 3 months, 6 months, 1 year, 5 years, or full data).</li>
     <li><b>Financial Ratios</b>: Analyze key financial ratios like P/E ratio, P/B ratio, and market capitalization.</li>
 </ol>
