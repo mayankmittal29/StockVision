@@ -7,9 +7,13 @@ from keras.models import load_model
 import streamlit as st
 from sklearn.linear_model import LinearRegression
 import mplfinance as mpf
+from stocknews import StockNews
+# from newsapi import NewsApiClient
 
+# # Initialize the News API client
+# newsapi = NewsApiClient(api_key='1ed9b8797ae64f18afd07d6a4e331ad1')
 start = '2013-07-11'
-end = '2024-07-10'
+end = '2024-07-18'
 st.markdown("<h1 style='text-align: center; font-size: 36px;'>StockVision</h1>", unsafe_allow_html=True)
 st.title('Stock Trend Prediction for BSE')
 
@@ -129,45 +133,45 @@ plt.legend()
 st.pyplot(fig2)
 
 last_100_days = final_df[-100:]
-next_100_days = []
+next_10_days = []
 input_seq = scaler.transform(last_100_days)
 
-for _ in range(100):
+for _ in range(10):
     input_seq_reshaped = input_seq[-100:].reshape(1, -1, 1)
     predicted_price = model.predict(input_seq_reshaped)
-    next_100_days.append(predicted_price[0, 0])
+    next_10_days.append(predicted_price[0, 0])
     input_seq = np.append(input_seq, predicted_price, axis=0)
 
-next_100_days = np.array(next_100_days).reshape(-1, 1)
-next_100_days = scaler.inverse_transform(next_100_days)
+next_10_days = np.array(next_10_days).reshape(-1, 1)
+next_10_days = scaler.inverse_transform(next_10_days)
 
-st.subheader('Next 100 Days Prediction')
+st.subheader('Next 10 Days Prediction')
 fig3 = plt.figure(figsize=(12,6))
-plt.plot(next_100_days, 'g', label='Predicted Price')
+plt.plot(next_10_days, 'g', label='Predicted Price')
 plt.xlabel('Days')
 plt.ylabel('Price')
 plt.legend()
 st.pyplot(fig3)
 
-st.subheader('Trend Analysis for Next 100 Predicted Days')
-X_next_100 = np.arange(len(next_100_days)).reshape(-1, 1)
-y_next_100 = next_100_days.flatten()
+st.subheader('Trend Analysis for Next 10 Predicted Days')
+X_next_10 = np.arange(len(next_10_days)).reshape(-1, 1)
+y_next_10 = next_10_days.flatten()
 
-regressor_next_100 = LinearRegression()
-regressor_next_100.fit(X_next_100, y_next_100)
-slope_next_100 = regressor_next_100.coef_[0]
+regressor_next_10 = LinearRegression()
+regressor_next_10.fit(X_next_10, y_next_10)
+slope_next_10 = regressor_next_10.coef_[0]
 
-if slope_next_100 > 0:
-    trend_next_100 = 'Uptrend'
+if slope_next_10 > 0:
+    trend_next_10 = 'Uptrend'
 else:
-    trend_next_100 = 'Downtrend'
+    trend_next_10 = 'Downtrend'
 
-st.write(f"The trend for the next 100 predicted days is: {trend_next_100}")
+st.write(f"The trend for the next 100 predicted days is: {trend_next_10}")
 
 # Plot the trend line for the next 100 predicted days
 fig4 = plt.figure(figsize=(12, 6))
-plt.plot(X_next_100, y_next_100, label='Predicted Prices')
-plt.plot(X_next_100, regressor_next_100.predict(X_next_100), label=f'Trend Line ({trend_next_100})', linestyle='--')
+plt.plot(X_next_10, y_next_10, label='Predicted Prices')
+plt.plot(X_next_10, regressor_next_10.predict(X_next_10), label=f'Trend Line ({trend_next_10})', linestyle='--')
 plt.xlabel('Days')
 plt.ylabel('Price')
 plt.legend()
@@ -181,15 +185,15 @@ mpf_data.set_index('Date', inplace=True)
 mpf_fig, mpf_ax = mpf.plot(mpf_data, type='candle', style='charles', returnfig=True)
 st.pyplot(mpf_fig)
 
-# Candlestick chart for the next 100 predicted days
-st.subheader('Candlestick Chart for Next 100 Predicted Days')
+# Candlestick chart for the next 10 predicted days
+st.subheader('Candlestick Chart for Next 10 Predicted Days')
 # Assuming you have open, high, low prices for the predicted days, here we generate dummy data for them
 predicted_df = pd.DataFrame({
-    'Date': pd.date_range(start=df['Date'].iloc[-1] + pd.Timedelta(days=1), periods=100, freq='B'),
-    'Open': y_next_100 * (1 + np.random.normal(0, 0.01, size=100)),  # Adding small noise
-    'High': y_next_100 * (1 + np.random.uniform(0.01, 0.02, size=100)),  # Adding small noise
-    'Low': y_next_100 * (1 - np.random.uniform(0.01, 0.02, size=100)),  # Adding small noise
-    'Close': y_next_100
+    'Date': pd.date_range(start=df['Date'].iloc[-1] + pd.Timedelta(days=1), periods=10, freq='B'),
+    'Open': y_next_10 * (1 + np.random.normal(0, 0.01, size=10)),  # Adding small noise
+    'High': y_next_10 * (1 + np.random.uniform(0.01, 0.02, size=10)),  # Adding small noise
+    'Low': y_next_10 * (1 - np.random.uniform(0.01, 0.02, size=10)),  # Adding small noise
+    'Close': y_next_10
 })
 
 predicted_df.set_index('Date', inplace=True)
@@ -290,3 +294,24 @@ if st.session_state.show_last_5_years:
 
 if st.session_state.show_full_data:
     plot_closing_prices(df, 'Closing Prices - Full Data')
+
+st.subheader(f'Latest News of {user_input}')
+sn = StockNews(user_input,save_news=False)
+df_news = sn.read_rss()
+for i in range(10):
+    st.subheader(f'News {i+1}')
+    st.write(df_news['published'][i])
+    st.write(df_news['title'][i])
+    st.write(df_news['summary'][i])
+    title_sentiment = df_news['sentiment_title'][i]
+    st.write(f'Title Sentiment {title_sentiment}')
+    news_sentiment = df_news['sentiment_summary'][i]
+    st.write(f'News Sentiment {news_sentiment}')
+# news = newsapi.get_everything(q=user_input, language='en', sort_by='publishedAt', page_size=2)
+# for article in news['articles']:
+#     st.write(f"### {article['title']}")
+#     st.write(f"**Source:** {article['source']['name']}  |  **Published At:** {article['publishedAt']}")
+#     st.write(f"**Description:** {article['description']}")
+#     st.write(f"[Read more]({article['url']})")
+#     st.write("---")
+

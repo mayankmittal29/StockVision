@@ -9,6 +9,7 @@
     <li>📊 <b>Interactive Charts</b>: Visualize historical closing prices and moving averages (100-day and 200-day).</li>
     <li>📈 <b>Financial Ratios</b>: Analyze key financial ratios such as P/E ratio, P/B ratio, and market capitalization.</li>
     <li>📉 <b>Candlestick Charts</b>: Generate candlestick charts for both historical and predicted stock prices.</li>
+    <li>📰 <b>Latest News and Sentiment Analysis</b>: Get the latest news headlines and sentiment analysis for selected stock tickers.</li>
 </ul>
 
 <h2 style="color: #4CAF50;">Features</h2>
@@ -17,6 +18,7 @@
     <li><b>Interactive Charts</b>: Offers interactive plots for closing prices, moving averages, and financial ratios.</li>
     <li><b>Candlestick Charts</b>: Provides visualization of stock price movements using candlestick charts for historical and predicted data.</li>
     <li><b>Financial Analysis</b>: Displays key financial ratios to assist in fundamental analysis.</li>
+    <li><b>Latest News and Sentiment Analysis</b>: Fetches the latest news headlines and provides sentiment analysis for the selected stock tickers.</li>
 </ul>
 
 <h2 style="color: #4CAF50;">Getting Started</h2>
@@ -35,7 +37,7 @@ cd StockVision
         <pre><code>streamlit run app.py
         </code></pre>
     </li>
-    <li>Can find the Ticker in:
+    <li>Find the Ticker in:
         <pre><code>Ticker.txt file
 </code></pre>
     </li>
@@ -52,6 +54,7 @@ cd StockVision
     <li>Keras (for loading the machine learning model)</li>
     <li>scikit-learn (for data preprocessing and linear regression)</li>
     <li>mplfinance (for candlestick charts)</li>
+    <li>StockNews (for fetching latest news)</li>
 </ul>
 
 <h2 style="color: #4CAF50;">Usage</h2>
@@ -60,6 +63,7 @@ cd StockVision
     <li><b>Predictions</b>: View predicted stock prices for the next 10 days along with trend analysis.</li>
     <li><b>Time Series Analysis</b>: Explore historical closing prices and moving averages for different time periods (1 month, 3 months, 6 months, 1 year, 5 years, or full data).</li>
     <li><b>Financial Ratios</b>: Analyze key financial ratios like P/E ratio, P/B ratio, and market capitalization.</li>
+    <li><b>Latest News and Sentiment Analysis</b>: Get the latest news headlines and sentiment analysis for the selected stock ticker.</li>
 </ol>
 
 <h2 style="color: #4CAF50;">Examples</h2>
@@ -67,4 +71,5 @@ cd StockVision
     <li><b>Predictions vs Original</b>: Compare predicted stock prices with actual prices for validation.</li>
     <li><b>Trend Analysis</b>: Determine whether the stock is in an uptrend or downtrend based on predicted prices.</li>
     <li><b>Candlestick Charts</b>: Visualize stock price movements using candlestick charts for both historical and predicted data.</li>
+    <li><b>Latest News and Sentiment Analysis</b>: Stay updated with the latest news headlines and understand the market sentiment related to your stock ticker.</li>
 </ul>
