@@ -295,23 +295,54 @@ if st.session_state.show_last_5_years:
 if st.session_state.show_full_data:
     plot_closing_prices(df, 'Closing Prices - Full Data')
 
-st.subheader(f'Latest News of {user_input}')
-sn = StockNews(user_input,save_news=False)
+# st.subheader(f'Latest News of {user_input}')
+# sn = StockNews(user_input,save_news=False)
+# df_news = sn.read_rss()
+# for i in range(10):
+#     st.subheader(f'News {i+1}')
+#     st.write(df_news['published'][i])
+#     st.write(df_news['title'][i])
+#     st.write(df_news['summary'][i])
+#     title_sentiment = df_news['sentiment_title'][i]
+#     st.write(f'Title Sentiment {title_sentiment}')
+#     news_sentiment = df_news['sentiment_summary'][i]
+#     st.write(f'News Sentiment {news_sentiment}')
+
+# st.markdown(f"""
+# <h1 style="text-align: center; color: #2E3B4E;">Latest News of {user_input}</h1>
+# """, unsafe_allow_html=True)
+
+# sn = StockNews(user_input, save_news=False)
+# df_news = sn.read_rss()
+
+# for i in range(10):
+#     st.markdown(f"""
+#     <div style="background-color: #f9f9f9; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
+#         <h3 style="color: #2E3B4E;">News {i+1}</h3>
+#         <p style="color: #6c757d;">{df_news['published'][i]}</p>
+#         <h4 style="color: #007bff;"><a href="{df_news['link'][i]}" target="_blank" style="text-decoration: none; color: #007bff;">{df_news['title'][i]}</a></h4>
+#         <p style="color: #343a40;">{df_news['summary'][i]}</p>
+#         <p><b>Title Sentiment:</b> {df_news['sentiment_title'][i]}</p>
+#         <p><b>News Sentiment:</b> {df_news['sentiment_summary'][i]}</p>
+#     </div>
+#     """, unsafe_allow_html=True)
+
+st.markdown(f"""
+<h1 style="text-align: center; color: #2E3B4E;">Latest News of {user_input}</h1>
+""", unsafe_allow_html=True)
+
+sn = StockNews(user_input, save_news=False)
 df_news = sn.read_rss()
 for i in range(10):
-    st.subheader(f'News {i+1}')
-    st.write(df_news['published'][i])
-    st.write(df_news['title'][i])
-    st.write(df_news['summary'][i])
-    title_sentiment = df_news['sentiment_title'][i]
-    st.write(f'Title Sentiment {title_sentiment}')
-    news_sentiment = df_news['sentiment_summary'][i]
-    st.write(f'News Sentiment {news_sentiment}')
-# news = newsapi.get_everything(q=user_input, language='en', sort_by='publishedAt', page_size=2)
-# for article in news['articles']:
-#     st.write(f"### {article['title']}")
-#     st.write(f"**Source:** {article['source']['name']}  |  **Published At:** {article['publishedAt']}")
-#     st.write(f"**Description:** {article['description']}")
-#     st.write(f"[Read more]({article['url']})")
-#     st.write("---")
+        st.markdown(f"""
+        <div style="background-color: #f9f9f9; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
+            <h3 style="color: #2E3B4E;">News {i+1}</h3>
+            <p style="color: #6c757d;">{df_news['published'][i]}</p>
+            <h4 style="color: #007bff;">{df_news['title'][i]}</h4>
+            <p style="color: #343a40;">{df_news['summary'][i]}</p>
+            <p style="color:#2E3B4E;"><b>Title Sentiment:</b> {df_news['sentiment_title'][i]}</p>
+            <p style="color:#2E3B4E;"><b>News Sentiment:</b> {df_news['sentiment_summary'][i]}</p>
+        </div>
+        """, unsafe_allow_html=True)
+
 
